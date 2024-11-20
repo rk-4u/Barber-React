@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import TerrainBackground from './Components/TerrainBackground';
+import Navbar from './Components/Navbar';
+import Home from './Components/Home';
+import Card from './Components/Card';
+import SocialMediaFooter from './Components/SocialMediaFooter';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TerrainBackground />
+      <Navbar style={{zIndex: 2}}/>
+      <Home/>
+      <Card/>
+      <div className='my-tailwind-scope'>
+      <SocialMediaFooter/>
+      </div>
     </div>
   );
 }

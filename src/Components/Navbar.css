@@ -1,0 +1,74 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(150px);  
+    color: #fff;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    box-shadow:  0 -10px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* .navbar-left {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+  } */
+  
+  .navbar-left .logo {
+    font-size: 1.5rem;
+    /* font-weight: bold; */
+    color: #fff;
+    /* text-decoration: none; */
+    margin: 0 auto; /* Centers the logo */
+    font-family: 'Chalkduster', fantasy;
+    color: black;
+
+  }
+  
+  .navbar-center {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+  }
+  
+  .navbar-center .nav-links {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-center .nav-links li {
+    margin-right: 1rem;
+  }
+  
+  .navbar-center .nav-links a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Ensure right content is at the far right */
+  }
+  
+  .navbar-right 
+  .navbar-right .user-icon {    
+    margin-left: 1rem;
+    position: relative;
+  }
+  
+  .navbar-right .cart-count {
+    color: black;
+    border-radius: 50%;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+  }
+
+  
