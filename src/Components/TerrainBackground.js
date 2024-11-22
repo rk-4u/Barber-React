@@ -4,16 +4,17 @@ import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.j
 import { ImprovedNoise } from 'three/addons/math/ImprovedNoise.js';
 
 const TerrainBackground = () => {
-
-
   const containerRef = useRef(null);
   const rendererRef = useRef(null);
   const cameraRef = useRef(null);
   const controlsRef = useRef(null);
+  const meshRef = useRef(null);
+  const rotationSpeedRef = useRef(0);
 
   useEffect(() => {
     let camera, scene, renderer, controls, mesh, texture;
-    const worldWidth = 256, worldDepth = 256;
+    const worldWidth = 256,
+      worldDepth = 256;
     const clock = new THREE.Clock();
 
     const init = () => {
@@ -49,6 +50,7 @@ const TerrainBackground = () => {
       // Mesh setup
       mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ map: texture }));
       scene.add(mesh);
+      meshRef.current = mesh;
 
       // Renderer setup
       renderer = new THREE.WebGLRenderer();
@@ -66,6 +68,9 @@ const TerrainBackground = () => {
 
       // Handle resizing
       window.addEventListener('resize', onWindowResize);
+
+      // Handle scroll
+      window.addEventListener('scroll', onScroll);
     };
 
     const onWindowResize = () => {
@@ -74,6 +79,18 @@ const TerrainBackground = () => {
         cameraRef.current.updateProjectionMatrix();
         rendererRef.current.setSize(window.innerWidth, window.innerHeight);
       }
+    };
+
+    const onScroll = (event) => {
+      const delta = window.scrollY - (event.previousScrollY || 0);
+      if (delta > 0) {
+        // Scrolling down
+        rotationSpeedRef.current = -0.02;
+      } else if (delta < 0) {
+        // Scrolling up
+        rotationSpeedRef.current = 0.02;
+      }
+      event.previousScrollY = window.scrollY;
     };
 
     const generateHeight = (width, height) => {
@@ -130,8 +147,14 @@ const TerrainBackground = () => {
       if (controlsRef.current) {
         controlsRef.current.update(clock.getDelta());
       }
+      if (meshRef.current) {
+        // Apply rotation based on scroll
+        meshRef.current.rotation.y += rotationSpeedRef.current;
+        // Slow down the rotation gradually
+        rotationSpeedRef.current *= 0.95;
+      }
       if (rendererRef.current && cameraRef.current) {
-        rendererRef.current.render(scene, cameraRef.current);
+        rendererRef.current.render(meshRef.current.parent, cameraRef.current);
       }
     };
 
@@ -139,6 +162,7 @@ const TerrainBackground = () => {
 
     return () => {
       window.removeEventListener('resize', onWindowResize);
+      window.removeEventListener('scroll', onScroll);
       if (containerRef.current && rendererRef.current) {
         containerRef.current.removeChild(rendererRef.current.domElement);
       }
@@ -155,8 +179,6 @@ const TerrainBackground = () => {
         width: '100%',
         height: '100%',
         zIndex: -1,
-        backdropFilter : 'blur (10px)', /* Apply blur effect */
-        transform: "scaleX(-1)", /* Mirror the effect horizontally */
         overflow: 'hidden',
       }}
     />
