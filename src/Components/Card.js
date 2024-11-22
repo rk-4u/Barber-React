@@ -10,7 +10,7 @@ const Card = () => {
             src : "https://www.gatsbyglobal.com/en/technique/best-haircuts-men-top-mens-hairstyles-today/images/img1.jpg"
         },
         {
-            type : "Korean Mullet, Semi-Leaf Cut",
+            type : " Semi-Leaf Cut",
             src : "https://www.gatsbyglobal.com/en/technique/best-haircuts-men-top-mens-hairstyles-today/images/img2.jpg"
         },
         {
@@ -18,7 +18,7 @@ const Card = () => {
             src : "https://www.gatsbyglobal.com/en/technique/best-haircuts-men-top-mens-hairstyles-today/images/img3.jpg"
         },
         {
-            type : "Center Part Mullet, Curtain Mullet",
+            type : "Center Part Mullet",
             src : "https://www.gatsbyglobal.com/en/technique/best-haircuts-men-top-mens-hairstyles-today/images/img4.jpg"
         },
         {
@@ -80,26 +80,23 @@ const Card = () => {
         <div className="container">
             <h1 className="styleTitle">Hair Styles</h1>
             <div className="scroll">
-                <div>
                     {hairStyles.map((hair, index) => (
+                    <div key={index} className="card">
                         <img src={hair.src} alt={`hair ${index}`} key={index} />
-                    ))}
-                     {/* {hairStyles.map((hair, index) => (
                         <p key={index}>{hair.type}</p>
-                    ))} */}
-                </div>
+                    </div>
+                    ))}
             </div>
         </div>
         <div className="container2">
             <h1 className="styleTitle">Beard Styles</h1>
             <div className="scroll">
-                <div >
                     {beardStyles.map((beard, index) => (
+                    <div key={index} className="card" >
                         <img src={beard.src} alt={`beard ${index}`} key={index} />
+                        <p className="styleType">{beard.type}</p>
+                    </div>
                     ))}
-
-
-                </div>
             </div>
         </div>
         <div>

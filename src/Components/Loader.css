@@ -1,4 +1,10 @@
-/* From Uiverse.io by abrahamcalsin */ 
+.conatiner{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .dot-spinner {
     --uib-size: 2.8rem;
     --uib-speed: .9s;
