@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useRef} from "react";
 import "./Card.css";
+// import HorizontalScroll from './HorizontalScroll';
 
 const Card = () => {
+
     const hairStyles = [
         {
             type : "Modern Mullet Hair",
@@ -82,13 +84,16 @@ const Card = () => {
                     {hairStyles.map((hair, index) => (
                         <img src={hair.src} alt={`hair ${index}`} key={index} />
                     ))}
+                     {/* {hairStyles.map((hair, index) => (
+                        <p key={index}>{hair.type}</p>
+                    ))} */}
                 </div>
             </div>
         </div>
         <div className="container2">
             <h1 className="styleTitle">Beard Styles</h1>
             <div className="scroll">
-                <div>
+                <div >
                     {beardStyles.map((beard, index) => (
                         <img src={beard.src} alt={`beard ${index}`} key={index} />
                     ))}

@@ -4,6 +4,8 @@ import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.j
 import { ImprovedNoise } from 'three/addons/math/ImprovedNoise.js';
 
 const TerrainBackground = () => {
+
+
   const containerRef = useRef(null);
   const rendererRef = useRef(null);
   const cameraRef = useRef(null);

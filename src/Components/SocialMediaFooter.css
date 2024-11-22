@@ -35,11 +35,14 @@
   font-weight: bold;
   color: #333;
   margin-bottom: 0.5rem;
+  text-align: start;
+  padding: 5px 2px 5px 20px;
 }
 
 .footer-link-group {
   display: flex;
   flex-direction: column;
+  align-items: start;
 }
 
 .footer-link-group a {
@@ -97,6 +100,7 @@
 .FooterTitle{
   display: flex;
   position: relative;
+  /* align-items: end; */
 }
 .FooterTitle h3 i {
   margin-left: 20px;

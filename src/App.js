@@ -1,20 +1,30 @@
+import React, { Suspense, useState, useEffect } from "react";
 import './App.css';
-import TerrainBackground from './Components/TerrainBackground';
+import Loader from "./Components/Loader";
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
-import Card from './Components/Card';
-import SocialMediaFooter from './Components/SocialMediaFooter';
+const TerrainBackground = React.lazy(() => import("./Components/TerrainBackground"));
+const Card = React.lazy(() => import("./Components/Card"));
+const SocialMediaFooter = React.lazy(() => import("./Components/SocialMediaFooter"));
+
+
 
 function App() {
   return (
+  
     <div className="App">
-      <TerrainBackground />
-      <Navbar style={{zIndex: 2}}/>
-      <Home/>
-      <Card/>
-      <div className='my-tailwind-scope'>
-      <SocialMediaFooter/>
-      </div>
+      <Suspense fallback={<div><Loader/></div>}>
+        <TerrainBackground/>
+      </Suspense>
+        <Navbar style={{zIndex: 2}}/>
+        <Home/>
+      <Suspense fallback={<div><Loader/></div>}>
+        <Card/>          
+      </Suspense>
+      <Suspense fallback={<div><Loader/></div>}>
+        <SocialMediaFooter/>
+      </Suspense>
+      
     </div>
   );
 }
