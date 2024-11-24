@@ -4,7 +4,7 @@ import { Button, ButtonToolbar } from 'rsuite';
 import 'rsuite/Button/styles/index.css';
 
 
-const Home = () => {
+const Home = ({ onBookSeatClick }) => {
     return (
         <div className='tittle'>
         <div className="nosifer-text">
@@ -12,7 +12,7 @@ const Home = () => {
         </div>
         <br/>
         <ButtonToolbar>
-        <Button color="green" appearance="primary" >Book Your Seat</Button>
+        <Button onClick={onBookSeatClick} color="green" appearance="primary" >Book Your Seat</Button>
         </ButtonToolbar>
         </div>
     )}

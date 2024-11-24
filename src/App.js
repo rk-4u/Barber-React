@@ -22,7 +22,7 @@ function App() {
         <Navbar style={{zIndex: 2}} onBookSeatClick={toggleBookSeat}/>
         {isBookSeatVisible && <BookSeat onClose={toggleBookSeat} />}
       </div>  
-        <Home/>
+        <Home onBookSeatClick={toggleBookSeat}/>
       <Suspense fallback={<div><Loader/></div>}>
         <Card/>          
       </Suspense>

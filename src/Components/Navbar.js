@@ -12,19 +12,7 @@ const Navbar = ({ onBookSeatClick }) => {
           Barber Shop
         </a>
       </div>
-      <div className="navbar-right , navbar-center">
-        <ul className="nav-links">
-          <li>
-            <a href="/">Products</a>
-          </li>
-          <li>
-            <a href="/">About Us</a>
-          </li>
-          <li>
-            <a href="/">Contact</a>
-          </li>
-        </ul>
-      </div>
+      
       <div className="navbar-right">
         <ButtonToolbar>
           {/* Use the passed function to toggle BookSeat visibility */}

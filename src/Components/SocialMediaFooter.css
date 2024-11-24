@@ -1,54 +1,59 @@
 .footer-container {
   width: 100%;
   backdrop-filter: blur(200px);
-  padding-top: 30px;
-  padding-bottom: 10px;
+  padding-top: 2rem; /* Changed from 30px */
+  padding-bottom: 0.5rem; /* Changed from 10px */
   box-shadow: inset 0 0 6px 2px rgba(0, 0, 0, 0.3);
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 1rem; /* Added gap for spacing */
 }
 
 @media (max-width: 640px) {
   .footer-grid {
     display: flex;
+    flex-direction: column; /* Ensure stacking on smaller devices */
+    gap: 1rem; /* Provide spacing between items */
   }
 }
 
 @media (min-width: 768px) {
   .footer-grid-md {
     display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Responsive grid for medium screens */
   }
 }
 
 .footer-section {
   display: flex;
-  gap: 1rem;
-  justify-content: end;
-  margin-right: 20px;
+  gap: 1rem; /* Changed from 1rem for better scalability */
+  justify-content: flex-end; /* Changed `end` to `flex-end` */
+  margin-right: 1.25rem; /* Changed from 20px */
 }
 
 .footer-title {
-  font-size: 1.25rem;
+  font-size: 1.5rem; /* Changed from 1.25rem for larger headers on all screens */
   font-weight: bold;
   color: #333;
   margin-bottom: 0.5rem;
   text-align: start;
-  padding: 5px 2px 5px 20px;
+  padding: 0.25rem 0.5rem 0.25rem 1rem; /* Changed from 5px, 2px, 5px, 20px */
 }
 
 .footer-link-group {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .footer-link-group a {
   color: #333;
   text-decoration: none;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem; /* Use rem for consistent spacing */
+  font-size: 0.875rem; /* Added a font size for consistency */
 }
 
 .footer-link-group a:hover {
@@ -57,25 +62,27 @@
 
 .footer-divider {
   border-top: 1px solid #e5e7eb;
-  margin: 1rem 0;
+  margin: 1rem 0; /* Changed from px */
 }
 
 .footer-copyright {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 20px;
-  padding-right: 50px;
+  padding-left: 1rem; /* Changed from 20px */
+  padding-right: 2rem; /* Changed from 50px */
+  flex-wrap: wrap; /* Ensures items wrap on smaller screens */
 }
 
 .footer-icons {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem; /* Changed from 1.5rem */
 }
 
 .footer-icons a {
   color: #333;
   text-decoration: none;
+  font-size: 1rem; /* Added a font size for scalability */
 }
 
 .footer-icons a:hover {
@@ -83,25 +90,33 @@
 }
 
 .FooterBrand img {
-  width: 170px;
-  height: 150px;
+  width: 100%; /* Makes it scale with container */
+  max-width: 8rem; /* Added a maximum width for scaling */
+  height: auto; /* Ensures aspect ratio is maintained */
 }
 
 .FooterBrand {
-  align-items: start;
+  align-items: flex-start;
   display: flex;
+  flex-wrap: wrap; /* Wrap content on smaller screens */
+  gap: 1rem; /* Added gap for spacing */
 }
 
 .FooterBrand h1 {
-  padding-top: 30px;
+  padding-top: 1.5rem; /* Changed from 30px */
+  font-size: 1.25rem; /* Added relative font size */
 }
 
-
-.FooterTitle{
+.FooterTitle {
   display: flex;
   position: relative;
-  /* align-items: end; */
+  flex-direction: column; /* Stack elements on smaller screens */
 }
+
+.FooterTitle h3 {
+  font-size: 1.125rem; /* Added font size for consistency */
+}
+
 .FooterTitle h3 i {
-  margin-left: 20px;
+  margin-left: 1rem; /* Changed from 20px */
 }
