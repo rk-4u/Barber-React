@@ -3,38 +3,36 @@ import './Navbar.css';
 import { Button, ButtonToolbar } from 'rsuite';
 import 'rsuite/Button/styles/index.css';
 
-const Navbar = () => {
+const Navbar = ({ onBookSeatClick }) => {
+  
   return (
-
-<nav className="navbar">
-  <div className="navbar-left">
-    <a href="/" className="logo">
-      Barber Shop
-    </a>
-  </div>
-  <div className="navbar-right , navbar-center">
-    <ul className="nav-links">
-      <li>
-        <a href="/">Products</a>
-      </li>
-      <li>
-        <a href="/">About Us</a>
-      </li>
-      <li>
-        <a href="/">Contact</a>
-      </li>
-    </ul>
-  </div>
-  <div className="navbar-right">
+    <nav className="navbar">
+      <div className="navbar-left">
+        <a href="/" className="logo">
+          Barber Shop
+        </a>
+      </div>
+      <div className="navbar-right , navbar-center">
+        <ul className="nav-links">
+          <li>
+            <a href="/">Products</a>
+          </li>
+          <li>
+            <a href="/">About Us</a>
+          </li>
+          <li>
+            <a href="/">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div className="navbar-right">
         <ButtonToolbar>
-        <Button >Book Your Seat</Button>
+          {/* Use the passed function to toggle BookSeat visibility */}
+          <Button onClick={onBookSeatClick}>Book Your Seat</Button>
         </ButtonToolbar>
-    <a href="/account" className="user-icon">
-      <i className="fas fa-user"></i>
-    </a>
-  </div>
-</nav>
-);
+      </div>
+    </nav>
+  );
 };
 
 export default Navbar;
